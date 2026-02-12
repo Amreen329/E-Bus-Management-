@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bus Tracker - Find Your Bus</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a href="#main-content" class="ebus-skip-link">Skip to main content</a>
+  <header class="ebus-header">
+    <h1><a href="index.html">Bus Tracker</a></h1>
+    <nav class="ebus-nav-links">
+      <a href="admin/login.html">Staff Login</a>
+      <a href="admin/register.html">Staff Register</a>
+      <a href="driver/login.html">Driver</a>
+      <a href="user/login.html">Passenger</a>
+    </nav>
+  </header>
+  <main id="main-content" class="ebus-container" style="padding-top: 2rem;">
+    <div class="ebus-card ebus-card-simple" style="text-align: center; max-width: 560px; margin: 2rem auto;">
+      <h2 class="ebus-page-title">Find Your Bus</h2>
+      <p class="ebus-intro-text">
+        See when your bus will arrive. No need to wait long.
+      </p>
+      <div class="ebus-home-actions">
+        <a href="user/register.html" class="ebus-btn ebus-btn-primary ebus-btn-large">New? Create Free Account</a>
+        <a href="user/login.html" class="ebus-btn ebus-btn-primary ebus-btn-large">Have Account? Enter Here</a>
+        <a href="driver/login.html" class="ebus-btn ebus-btn-secondary">I Drive a Bus</a>
+        <a href="admin/login.html" class="ebus-btn ebus-btn-secondary">Staff Login</a>
+      </div>
+    </div>
+  </main>
+  <script>
+    if (window.EbusLogger) EbusLogger.info('index', 'Landing page loaded');
+  </script>
+</body>
+</html>

@@ -1,0 +1,418 @@
+/**
+ * Ebus Management - Global Styles
+ * Portable, maintainable, responsive CSS for all modules.
+ */
+
+:root {
+  --ebus-primary: #0d47a1;
+  --ebus-primary-light: #1976d2;
+  --ebus-secondary: #ff6f00;
+  --ebus-bg: #f5f5f5;
+  --ebus-card: #ffffff;
+  --ebus-text: #1a1a1a;
+  --ebus-text-muted: #555555;
+  --ebus-error: #b71c1c;
+  --ebus-success: #1b5e20;
+  --ebus-radius: 10px;
+  --ebus-radius-sm: 8px;
+  --ebus-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --ebus-shadow-md: 0 4px 14px rgba(0, 0, 0, 0.12);
+  --ebus-font: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --ebus-touch-min: 50px;
+  --ebus-font-size-base: 18px;
+  --ebus-line-height: 1.6;
+  --ebus-header-height: 60px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--ebus-font);
+  font-size: var(--ebus-font-size-base);
+  background: var(--ebus-bg);
+  color: var(--ebus-text);
+  line-height: var(--ebus-line-height);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Skip link for accessibility */
+.ebus-skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0.5rem;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  background: var(--ebus-primary);
+  color: white;
+  text-decoration: none;
+  border-radius: var(--ebus-radius);
+  font-weight: 600;
+  transition: top 0.2s;
+}
+.ebus-skip-link:focus {
+  top: 0.5rem;
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+.ebus-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+@media (max-width: 480px) {
+  .ebus-container { padding: 0.75rem; }
+}
+
+.ebus-card {
+  background: var(--ebus-card);
+  border-radius: var(--ebus-radius);
+  box-shadow: var(--ebus-shadow);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 480px) {
+  .ebus-card { padding: 1rem; }
+}
+
+/* Header */
+.ebus-header {
+  background: var(--ebus-primary);
+  color: white;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  min-height: var(--ebus-header-height);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.ebus-header h1 {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.ebus-header h1 a {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .ebus-header h1 { font-size: 1.1rem; max-width: 60%; }
+}
+
+/* Nav - desktop */
+.ebus-nav-links {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.ebus-nav-links a,
+.ebus-nav-links button {
+  padding: 0.5rem 0.9rem;
+  min-height: var(--ebus-touch-min);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.95);
+  text-decoration: none;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border-radius: var(--ebus-radius-sm);
+  transition: background 0.2s;
+}
+
+.ebus-nav-links a:hover,
+.ebus-nav-links button:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.ebus-nav-links a:focus,
+.ebus-nav-links button:focus {
+  outline: 2px solid rgba(255,255,255,0.8);
+  outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  .ebus-header { flex-direction: column; align-items: stretch; }
+  .ebus-nav-links {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .ebus-nav-links a, .ebus-nav-links button {
+    width: 100%;
+    justify-content: flex-start;
+    padding-left: 1rem;
+    min-height: 48px;
+  }
+}
+
+/* Buttons */
+.ebus-btn {
+  display: inline-flex;
+  padding: 0.75rem 1.5rem;
+  min-height: var(--ebus-touch-min);
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: var(--ebus-radius);
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, opacity 0.2s;
+}
+.ebus-btn-large {
+  padding: 1rem 1.5rem;
+  min-height: 56px;
+  font-size: 1.15rem;
+}
+
+.ebus-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.ebus-btn-primary {
+  background: var(--ebus-primary);
+  color: white;
+}
+
+.ebus-btn-primary:hover:not(:disabled) {
+  background: var(--ebus-primary-light);
+}
+
+.ebus-btn-secondary {
+  background: #e0e0e0;
+  color: var(--ebus-text);
+}
+
+.ebus-btn-secondary:hover:not(:disabled) {
+  background: #bdbdbd;
+}
+
+.ebus-btn-danger {
+  background: var(--ebus-error);
+  color: white;
+}
+
+/* Forms */
+.ebus-form-group {
+  margin-bottom: 1rem;
+}
+
+.ebus-form-group label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--ebus-text);
+}
+
+.ebus-form-group input,
+.ebus-form-group select,
+.ebus-form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  min-height: var(--ebus-touch-min);
+  border: 2px solid #999;
+  border-radius: var(--ebus-radius);
+  font-family: inherit;
+  font-size: 1.05rem;
+}
+
+.ebus-form-group textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.ebus-form-group input:focus,
+.ebus-form-group select:focus,
+.ebus-form-group textarea:focus {
+  outline: none;
+  border-color: var(--ebus-primary);
+  box-shadow: 0 0 0 2px rgba(13, 71, 161, 0.2);
+}
+
+@media (max-width: 480px) {
+  .ebus-form-group input, .ebus-form-group select { font-size: 16px; }
+}
+
+/* Alerts */
+.ebus-alert {
+  padding: 0.875rem 1rem;
+  border-radius: var(--ebus-radius);
+  margin-bottom: 1rem;
+}
+
+.ebus-alert-error {
+  background: #ffebee;
+  color: var(--ebus-error);
+  border: 1px solid #ef9a9a;
+}
+
+.ebus-alert-success {
+  background: #e8f5e9;
+  color: var(--ebus-success);
+  border: 1px solid #a5d6a7;
+}
+
+.ebus-alert-info {
+  background: #e3f2fd;
+  color: var(--ebus-primary);
+  border: 1px solid #90caf9;
+}
+
+/* Tables - responsive */
+.ebus-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.ebus-table {
+  width: 100%;
+  min-width: 400px;
+  border-collapse: collapse;
+}
+
+.ebus-table th,
+.ebus-table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.ebus-table th {
+  font-weight: 600;
+  color: var(--ebus-text-muted);
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+
+.ebus-table td {
+  vertical-align: top;
+}
+
+@media (max-width: 640px) {
+  .ebus-table th, .ebus-table td { padding: 0.5rem 0.4rem; font-size: 0.9rem; }
+}
+
+/* Card-style table on very small screens */
+@media (max-width: 480px) {
+  .ebus-table-wrap { overflow: visible; }
+  .ebus-table { min-width: 0; display: block; }
+  .ebus-table thead { display: none; }
+  .ebus-table tbody tr {
+    display: block;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: var(--ebus-bg);
+    border-radius: var(--ebus-radius);
+  }
+  .ebus-table tbody td {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.35rem 0;
+    border-bottom: none;
+  }
+  .ebus-table tbody td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: var(--ebus-text-muted);
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+}
+
+.ebus-page-title {
+  margin: 0 0 1rem;
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--ebus-text);
+}
+
+.ebus-intro-text {
+  font-size: 1.15rem;
+  color: var(--ebus-text-muted);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.ebus-hint {
+  font-size: 0.95rem;
+  color: var(--ebus-text-muted);
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 480px) {
+  .ebus-page-title { font-size: 1.4rem; }
+  .ebus-intro-text { font-size: 1.05rem; }
+}
+
+.ebus-empty {
+  text-align: center;
+  color: var(--ebus-text-muted);
+  padding: 2rem 1rem;
+}
+
+.ebus-loading {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--ebus-text-muted);
+}
+
+/* Auth check loading overlay */
+.ebus-auth-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  color: var(--ebus-text-muted);
+}
+
+/* Home page action buttons */
+.ebus-home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.ebus-home-actions .ebus-btn {
+  flex: 1 1 auto;
+  min-width: 140px;
+}
+
+@media (max-width: 480px) {
+  .ebus-home-actions { flex-direction: column; }
+  .ebus-home-actions .ebus-btn { min-width: 0; width: 100%; }
+}
+
+.ebus-link-plain {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ebus-primary);
+  text-decoration: underline;
+}

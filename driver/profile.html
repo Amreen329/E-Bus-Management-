@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Driver Profile & Contact - Ebus Management</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <header class="ebus-header">
+    <h1><a href="../index.html" style="color: inherit; text-decoration: none;">Bus Tracker</a></h1>
+    <nav class="ebus-nav-links">
+      <a href="dashboard.html">Home</a>
+      <a href="profile.html">My Contact</a>
+      <a href="buses.html">My Buses</a>
+      <a href="routes.html">Route & Location</a>
+      <button type="button" id="logoutBtn">Exit</button>
+    </nav>
+  </header>
+  <main class="ebus-container">
+    <h2 class="ebus-page-title">My Contact Info</h2>
+    <p class="ebus-intro-text" style="margin-bottom: 1rem;">How can people reach you? Optional.</p>
+    <div id="driverAlert" class="ebus-alert" style="display: none;"></div>
+    <div class="ebus-card" style="max-width: 480px;">
+      <form id="profileForm">
+        <div class="ebus-form-group">
+          <label for="displayName">Your name</label>
+          <input type="text" id="displayName" name="displayName" placeholder="e.g. Ravi Kumar">
+        </div>
+        <div class="ebus-form-group">
+          <label for="phone">Your phone number</label>
+          <input type="tel" id="phone" name="phone" placeholder="e.g. 9876543210">
+        </div>
+        <div class="ebus-form-group">
+          <label for="contactDetails">Any other way to contact? (optional)</label>
+          <textarea id="contactDetails" name="contactDetails" rows="3" placeholder="e.g. WhatsApp, address"></textarea>
+        </div>
+        <button type="submit" class="ebus-btn ebus-btn-primary ebus-btn-large" id="submitBtn">Save</button>
+      </form>
+    </div>
+  </main>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="../config/firebase-config.js"></script>
+  <script src="../js/logger.js"></script>
+  <script src="../js/utils.js"></script>
+  <script src="../js/firebase-init.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/firestore.js"></script>
+  <script src="driver-profile.js"></script>
+</body>
+</html>

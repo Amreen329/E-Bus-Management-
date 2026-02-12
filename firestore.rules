@@ -1,0 +1,35 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isAuth() { return request.auth != null; }
+    function isAdmin() {
+      return isAuth() && get(/databases/$(database)/documents/roles/$(request.auth.uid)).data.role == 'admin';
+    }
+    function isDriver() {
+      return isAuth() && get(/databases/$(database)/documents/roles/$(request.auth.uid)).data.role == 'driver';
+    }
+    function isUser() {
+      return isAuth() && get(/databases/$(database)/documents/roles/$(request.auth.uid)).data.role == 'user';
+    }
+    match /roles/{userId} {
+      allow read: if isAuth() && request.auth.uid == userId;
+      allow create: if isAuth() && request.auth.uid == userId;
+      allow update, delete: if isAdmin();
+    }
+    match /drivers/{userId} {
+      allow read, write: if isAuth() && (request.auth.uid == userId || isAdmin());
+    }
+    match /buses/{busId} {
+      allow read: if true;
+      allow create: if isDriver();
+      allow update, delete: if isDriver() && resource.data.driverUid == request.auth.uid;
+    }
+    match /routes/{routeId} {
+      allow read: if true;
+      allow create, update, delete: if isDriver();
+    }
+    match /userProfiles/{userId} {
+      allow read, write: if isAuth() && request.auth.uid == userId;
+    }
+  }
+}

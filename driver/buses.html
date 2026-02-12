@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Buses - Ebus Management</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <header class="ebus-header">
+    <h1><a href="../index.html" style="color: inherit; text-decoration: none;">Bus Tracker</a></h1>
+    <nav class="ebus-nav-links">
+      <a href="dashboard.html">Home</a>
+      <a href="profile.html">My Contact</a>
+      <a href="buses.html">My Buses</a>
+      <a href="routes.html">Route & Location</a>
+      <button type="button" id="logoutBtn">Exit</button>
+    </nav>
+  </header>
+  <main class="ebus-container">
+    <h2 class="ebus-page-title">Add Your Bus</h2>
+    <p class="ebus-intro-text" style="margin-bottom: 1rem;">Enter bus details. People will see this when they search.</p>
+    <div id="driverAlert" class="ebus-alert" style="display: none;"></div>
+    <div class="ebus-card">
+      <h3 style="margin-top: 0; font-size: 1.2rem;">New Bus</h3>
+      <form id="busForm" style="max-width: 480px;">
+        <div class="ebus-form-group">
+          <label for="busNumber">Bus number or name</label>
+          <input type="text" id="busNumber" name="busNumber" required placeholder="e.g. BUS-001, Route 5">
+        </div>
+        <div class="ebus-form-group">
+          <label for="busType">What type of bus?</label>
+          <select id="busType" name="busType" required>
+            <option value="">Choose type</option>
+            <option value="standard">Normal</option>
+            <option value="express">Express (fast)</option>
+            <option value="minibus">Mini bus</option>
+            <option value="ac">AC</option>
+            <option value="sleeper">Sleeper</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="ebus-form-group">
+          <label for="capacity">How many seats?</label>
+          <input type="number" id="capacity" name="capacity" min="1" placeholder="e.g. 40">
+        </div>
+        <div class="ebus-form-group">
+          <label for="busDetails">Any other info? (optional)</label>
+          <textarea id="busDetails" name="busDetails" rows="2" placeholder="e.g. Color, special features"></textarea>
+        </div>
+        <button type="submit" class="ebus-btn ebus-btn-primary ebus-btn-large" id="submitBusBtn">Add Bus</button>
+      </form>
+    </div>
+    <div class="ebus-card">
+      <h3 style="margin-top: 0; font-size: 1.2rem;">Your Buses</h3>
+      <div id="busList" class="ebus-loading">Loading...</div>
+    </div>
+  </main>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="../config/firebase-config.js"></script>
+  <script src="../js/logger.js"></script>
+  <script src="../js/utils.js"></script>
+  <script src="../js/firebase-init.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/firestore.js"></script>
+  <script src="driver-buses.js"></script>
+</body>
+</html>
