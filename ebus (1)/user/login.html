@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Login - Ebus Management</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <header class="ebus-header">
+    <h1><a href="../index.html" style="color: inherit; text-decoration: none;">Ebus Management</a></h1>
+    <nav class="ebus-nav-links">
+      <a href="../index.html">Home</a>
+      <a href="register.html">Register</a>
+    </nav>
+  </header>
+  <main class="ebus-container" style="max-width: 420px; margin-top: 2rem;">
+    <div class="ebus-card">
+      <h2 class="ebus-page-title">Enter to Find Bus</h2>
+      <p class="ebus-intro-text" style="margin-bottom: 1rem;">Use your email and password.</p>
+      <div id="userAlert" class="ebus-alert" style="display: none;"></div>
+      <form id="loginForm" aria-label="Login form">
+        <div class="ebus-form-group">
+          <label for="email">Your email</label>
+          <input type="email" id="email" name="email" required placeholder="name@gmail.com" autocomplete="email">
+        </div>
+        <div class="ebus-form-group">
+          <label for="password">Your password</label>
+          <input type="password" id="password" name="password" required placeholder="Enter password" autocomplete="current-password">
+        </div>
+        <button type="submit" class="ebus-btn ebus-btn-primary ebus-btn-large" id="submitBtn">Enter</button>
+      </form>
+      <p style="margin-top: 1.25rem; font-size: 1.05rem;"><a href="register.html" class="ebus-link-plain">New? Create free account</a></p>
+    </div>
+  </main>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="../config/firebase-config.js"></script>
+  <script src="../js/logger.js"></script>
+  <script src="../js/utils.js"></script>
+  <script src="../js/firebase-init.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="user-login.js"></script>
+</body>
+</html>

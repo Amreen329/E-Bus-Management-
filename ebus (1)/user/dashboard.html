@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Bus Location - Ebus Management</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <header class="ebus-header">
+    <h1><a href="../index.html" style="color: inherit; text-decoration: none;">Bus Tracker</a></h1>
+    <nav class="ebus-nav-links">
+      <a href="dashboard.html">Find Bus</a>
+      <button type="button" id="logoutBtn">Exit</button>
+    </nav>
+  </header>
+  <main class="ebus-container">
+    <h2 class="ebus-page-title">Where is Your Bus?</h2>
+    <p class="ebus-intro-text" style="margin-bottom: 1rem;">Type from where and to where. You can type part of the name (e.g. "Central" finds "Central Station").</p>
+    <div id="userAlert" class="ebus-alert" style="display: none;"></div>
+    <div class="ebus-card" style="max-width: 520px;">
+      <form id="searchForm" aria-label="Find bus">
+        <div class="ebus-form-group">
+          <label for="source">From where? (start)</label>
+          <input type="text" id="source" name="source" placeholder="e.g. Central, Main Road" autocomplete="off">
+        </div>
+        <div class="ebus-form-group">
+          <label for="destination">To where? (end)</label>
+          <input type="text" id="destination" name="destination" placeholder="e.g. Airport, Market" autocomplete="off">
+        </div>
+        <button type="submit" class="ebus-btn ebus-btn-primary ebus-btn-large" id="searchBtn">Find Bus</button>
+      </form>
+    </div>
+    <div class="ebus-card">
+      <h3 style="margin-top: 0; font-size: 1.25rem;">Buses Found</h3>
+      <div id="searchResults" class="ebus-empty">Type above and click "Find Bus" to see buses.</div>
+    </div>
+  </main>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="../config/firebase-config.js"></script>
+  <script src="../js/logger.js"></script>
+  <script src="../js/utils.js"></script>
+  <script src="../js/firebase-init.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/firestore.js"></script>
+  <script src="user-dashboard.js"></script>
+</body>
+</html>

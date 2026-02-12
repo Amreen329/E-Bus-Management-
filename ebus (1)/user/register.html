@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Register - Ebus Management</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <header class="ebus-header">
+    <h1><a href="../index.html" style="color: inherit; text-decoration: none;">Ebus Management</a></h1>
+    <nav class="ebus-nav-links">
+      <a href="../index.html">Home</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+  <main class="ebus-container" style="max-width: 480px; margin-top: 2rem;">
+    <div class="ebus-card">
+      <h2 class="ebus-page-title">Create Free Account</h2>
+      <p class="ebus-intro-text" style="margin-bottom: 1rem;">Fill this once. Then you can find your bus anytime.</p>
+      <div id="userAlert" class="ebus-alert" style="display: none;"></div>
+      <form id="registerForm" aria-label="Create account form">
+        <div class="ebus-form-group">
+          <label for="firstName">Your first name</label>
+          <input type="text" id="firstName" name="firstName" required placeholder="e.g. Ravi" autocomplete="given-name">
+        </div>
+        <div class="ebus-form-group">
+          <label for="lastName">Your last name</label>
+          <input type="text" id="lastName" name="lastName" required placeholder="e.g. Kumar" autocomplete="family-name">
+        </div>
+        <div class="ebus-form-group">
+          <label for="email">Your email</label>
+          <input type="email" id="email" name="email" required placeholder="e.g. name@gmail.com" autocomplete="email">
+          <span class="ebus-hint">Use the same email you use for WhatsApp or Gmail.</span>
+        </div>
+        <div class="ebus-form-group">
+          <label for="password">Create a password</label>
+          <input type="password" id="password" name="password" required minlength="6" placeholder="At least 6 letters or numbers" autocomplete="new-password">
+          <span class="ebus-hint">Min 6 letters or numbers. Remember it.</span>
+        </div>
+        <button type="submit" class="ebus-btn ebus-btn-primary ebus-btn-large" id="submitBtn">Create Account</button>
+      </form>
+      <p style="margin-top: 1.25rem; font-size: 1.05rem;"><a href="login.html" class="ebus-link-plain">Already have account? Enter here</a></p>
+    </div>
+  </main>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="../config/firebase-config.js"></script>
+  <script src="../js/logger.js"></script>
+  <script src="../js/utils.js"></script>
+  <script src="../js/firebase-init.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/firestore.js"></script>
+  <script src="user-register.js"></script>
+</body>
+</html>
